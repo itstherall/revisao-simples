@@ -1,22 +1,27 @@
+
 name: Olá
+
 on:
-   workflow_dispatch:
-     inputs:
-       nome:
-         description: "Quem você quer cumprimentar?"
-         default: "turma"
-         
+  workflow_dispatch:
+    inputs:
+      nome:
+        description: "Quem você quer cumprimentar?"
+        required: true
+        default: "turma"
+        type: string
+
 jobs:
-   ola:
-     runs-on: ubuntu-latest
-     steps:
-       - name: Saudação
+  ola:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Saudação
         env:
-           NOME: ${{ inputs.nome }}
+          NOME: ${{ inputs.nome }}
         run: |
-           echo "Olá, $NOME!"
-           echo "Evento: $GITHUB_EVENT_NAME"
-           echo "Runner: $RUNNER_OS"
+          echo "Olá, $NOME!"
+          echo "Evento: $GITHUB_EVENT_NAME"
+          echo "Runner: $RUNNER_OS"
+
       - name: O runner tem Docker
         run: docker --version
-
