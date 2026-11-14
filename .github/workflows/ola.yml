@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       nome:
-        description: "Quem você quer cumprimentar?"
+        description: "Quem você quer cumprimentarr?"
         required: true
         default: "turma"
         type: string
